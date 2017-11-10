@@ -58,7 +58,7 @@ func md2pdf(cmd *cobra.Command, args []string) error {
 		return errors.New("-o/--output is required")
 	}
 
-	execCmd := exec.Command("pandoc", args[0], "-o", outputFile, "-t", "latex", "--latex-engine=xelatex", "--data-dir=/home/vagrant/.config/pandoc", "--template=default-zh.latex", "-V", "colorlinks=true", "-V", "fontsize=12pt", "-V", "lang=zh", "-V", "papersize=a4", "-V", "documentclass=article", "-V", "linestretch=1.4", "-V", "CJKmainfont=Source Han Serif CN", "-V", "CJKoptions=BoldFont=Source Han Sans CN", "-V", "geometry=top=1.2in,bottom=1.2in,left=1.2in,right=1in", "-F", "pandoc-crossref", "-F", "pandoc-citeproc", "-M", "crossrefYaml=/home/vagrant/.config/pandoc/crossref-zh.yaml")
+	execCmd := exec.Command("pandoc", args[0], "-o", outputFile, "-t", "latex", "--latex-engine=xelatex", "--data-dir=/home/vagrant/.config/pandoc", "--template=default-zh.latex", "-V", "urlcolor=Emerald", "-V", "citecolor=YellowOrange", "-V", "fontsize=12pt", "-V", "lang=zh", "-V", "papersize=a4", "-V", "documentclass=article", "-V", "linestretch=1.4", "-V", "CJKmainfont=Source Han Serif CN", "-V", "CJKoptions=BoldFont=Source Han Sans CN", "-V", "geometry=top=1.2in,bottom=1.2in,left=1.2in,right=1in", "-F", "pandoc-crossref", "-F", "pandoc-citeproc", "-M", "crossrefYaml=/home/vagrant/.config/pandoc/crossref-zh.yaml")
 	execCmd.Stdout = os.Stdout
 	execCmd.Stderr = os.Stderr
 	if err := execCmd.Run(); err != nil {
